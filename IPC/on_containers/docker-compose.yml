@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  container_01:
+    build:
+      context: ./Container01/
+      dockerfile: Dockerfile
+    ipc: host
+
+  container_02:
+    build:
+      context: ./Container02/
+      dockerfile: Dockerfile
+    ipc: host
