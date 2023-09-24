@@ -3,7 +3,10 @@ import time
 
 # Creating a memory segment with 256 bytes of size
 # Note that this one uses the shared memory but does not create it
-memseg = sharedmem.SharedMemory(name="memseg_01")
+try:
+    memseg = sharedmem.SharedMemory(name="memseg_01")
+except FileNotFoundError:
+    memseg = sharedmem.SharedMemory(name="memseg_01", create=True, size=256)
 
 while True:
     
